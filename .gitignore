@@ -1,0 +1,33 @@
+# Directorios generados por live-build (enormes, regenerables)
+cache/
+chroot/
+binary/
+.build/
+bin/
+
+# Imágenes y artefactos de salida
+*.iso
+*.img
+*.packages
+*.contents
+*.sha256
+*.zsync
+*.torrent
+*.modified_timestamps
+
+# Logs de build y descargas
+*.log
+wget-log*
+
+# Ficheros temporales y de bloqueo
+*.tmp
+*.lock
+*.swp
+
+# Artefactos de live-build en la raíz del proyecto
+chroot.files
+chroot.packages.install
+chroot.packages.live
+live-image-amd64.files
+live-image-amd64.contents
+live-image-amd64.packages

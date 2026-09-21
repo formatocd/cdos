@@ -1,0 +1,20 @@
+#!/bin/sh
+set -e
+
+# live-build incluye indi-dsi como "firmware" porque instala archivos
+# en /lib/firmware. No es firmware de hardware genérico, así que lo
+# purgamos junto con sus dependencias arrastradas.
+#
+# Ver: /usr/share/live/build/functions/firmwarelists.sh
+
+apt-get -y --purge purge \
+    indi-dsi \
+    libindidriver1 \
+    libindi-data \
+    libcfitsio10t64 \
+    libnova-0.16-0t64 2>/dev/null || true
+
+# Eliminar dependencias huérfanas que hayan quedado sueltas
+apt-get -y --auto-remove autoremove 2>/dev/null || true
+
+exit 0

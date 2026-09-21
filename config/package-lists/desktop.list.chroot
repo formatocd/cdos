@@ -1,0 +1,15 @@
+# Entorno de escritorio KDE Plasma (mínimo)
+kde-plasma-desktop
+
+# Gestor de pantalla (login gráfico)
+sddm
+
+# Servidor gráfico X11 (necesario para SDDM y para una experiencia live predecible)
+xserver-xorg
+
+# Gestor de ventanas para la sesión X11
+kwin-x11
+
+# Herramientas de gestión de energía y discos (dependencias recomendadas)
+upower
+udisks2

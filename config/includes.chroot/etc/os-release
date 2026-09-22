@@ -1,0 +1,12 @@
+PRETTY_NAME="CDOS 0.3 (Trixie)"
+NAME="CDOS"
+VERSION_ID="0.3"
+VERSION="0.3 (Trixie)"
+VERSION_CODENAME=trixie
+ID=cdos
+ID_LIKE=debian
+HOME_URL="https://gitlab.com/fcd-private/cdos"
+SUPPORT_URL="https://gitlab.com/fcd-private/cdos/-/issues"
+BUG_REPORT_URL="https://gitlab.com/fcd-private/cdos/-/issues"
+PRIVACY_POLICY_URL="https://gitlab.com/fcd-private/cdos"
+UBUNTU_CODENAME=""

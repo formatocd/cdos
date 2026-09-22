@@ -28,3 +28,6 @@ kate
 # con Plasma)
 fish
 
+# Herramienta de información del sistema (invocable manualmente,
+# no auto-ejecutada en Konsole para no molestar en el uso diario)
+fastfetch

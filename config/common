@@ -57,6 +57,9 @@ LB_SYSTEM="live"
 # Set base name of the image
 LB_IMAGE_NAME="live-image"
 
+# Parámetros de arranque para la sesión live
+LB_BOOTAPPEND_LIVE="boot=live components username=live hostname=cdos"
+
 # Set options to use with apt
 APT_OPTIONS="--yes -o Acquire::Retries=5"
 

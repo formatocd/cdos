@@ -13,3 +13,18 @@ kwin-x11
 # Herramientas de gestión de energía y discos (dependencias recomendadas)
 upower
 udisks2
+
+# Esenciales del escritorio (recommends de kde-plasma-desktop que
+# excluimos con LB_APT_RECOMMENDS=false y añadimos explícitamente)
+konsole
+plasma-nm
+xdg-desktop-portal-kde
+kde-spectacle
+ark
+kate
+
+# Shell interactivo para el usuario (sustituye a bash en Konsole,
+# pero NO se establece como shell de login para evitar problemas
+# con Plasma)
+fish
+

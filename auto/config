@@ -1,0 +1,21 @@
+#!/bin/sh
+# Receta de build de CDOS
+# Ejecutar con: lb config (sin argumentos) o ./auto/config
+#
+# Este script se ejecuta automáticamente al inicio de "lb build"
+# si no se ha pasado configuración previa.
+#
+# Historial: los parámetros se consolidan aquí a partir de v0.3.1.
+
+set -e
+
+lb config noauto \
+    --distribution trixie \
+    --debian-installer-distribution trixie \
+    --binary-images iso-hybrid \
+    --architectures amd64 \
+    --apt-recommends false \
+    --iso-volume "CDOS @ISOVOLUME_TS@" \
+    --debian-installer false \
+    --bootappend-live "boot=live components live-config.username=live live-config.hostname=cdos" \
+    "${@}"

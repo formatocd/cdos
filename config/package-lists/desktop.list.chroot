@@ -23,6 +23,12 @@ kde-spectacle
 ark
 kate
 
+# Aplicaciones del sistema (recommends de kde-plasma-desktop que
+# excluimos con LB_APT_RECOMMENDS=false; sin ellas, el panel de
+# Plasma muestra lanzadores fantasma)
+systemsettings
+plasma-discover
+
 # Shell interactivo para el usuario (sustituye a bash en Konsole,
 # pero NO se establece como shell de login para evitar problemas
 # con Plasma)

@@ -18,4 +18,5 @@ lb config noauto \
     --iso-volume "CDOS @ISOVOLUME_TS@" \
     --debian-installer false \
     --bootappend-live "boot=live components live-config.username=live live-config.hostname=cdos" \
+    --debootstrap-options "--include=ca-certificates,apt-transport-https" \
     "${@}"

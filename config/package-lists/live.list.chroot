@@ -4,3 +4,4 @@ live-config-systemd
 systemd-sysv
 user-setup
 sudo
+ca-certificates

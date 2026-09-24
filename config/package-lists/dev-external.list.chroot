@@ -1,0 +1,20 @@
+# =====================================================================
+# Paquetes de repositorios externos
+# Requieren los repositorios declarados en config/archives/:
+#   - microsoft.list.chroot  → VSCode
+#   - docker.list.chroot     → Docker CE
+#   - onlyoffice.list.chroot → ONLYOFFICE Desktop Editors
+# =====================================================================
+
+# --- Editor (Microsoft) ---
+code
+
+# --- Contenedores (Docker) ---
+docker-ce
+docker-ce-cli
+containerd.io
+docker-buildx-plugin
+docker-compose-plugin
+
+# --- Ofimática (ONLYOFFICE) ---
+onlyoffice-desktopeditors

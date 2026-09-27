@@ -1,0 +1,37 @@
+#!/bin/sh
+# Hook de instalación de fnm (Fast Node Manager) para CDOS
+# Se ejecuta durante el build, después de la instalación de paquetes.
+
+set -e
+
+# --- 1. Descargar fnm ---
+FNM_VERSION="1.39.0"
+FNM_URL="https://github.com/Schniz/fnm/releases/download/v${FNM_VERSION}/fnm-linux.zip"
+FNM_SHA256="7807664f39d39fc518da1c35ba0181e4b3267603c4b1dedeb4b5fc6ae440a224"
+
+echo "Descargando fnm ${FNM_VERSION}..."
+curl -fsSL "$FNM_URL" -o /tmp/fnm-linux.zip
+
+# --- 2. Verificar checksum ---
+echo "Verificando checksum de fnm..."
+echo "${FNM_SHA256}  /tmp/fnm-linux.zip" | sha256sum -c - || {
+    echo "ERROR: checksum de fnm no coincide" >&2
+    exit 1
+}
+
+# --- 3. Extraer el binario ---
+echo "Instalando fnm en /usr/local/bin..."
+mkdir -p /usr/local/bin
+unzip -o /tmp/fnm-linux.zip -d /usr/local/bin/
+chmod +x /usr/local/bin/fnm
+rm -f /tmp/fnm-linux.zip
+
+# --- 4. Integración con fish ---
+echo "Configurando fnm para fish..."
+mkdir -p /etc/fish/conf.d
+cat > /etc/fish/conf.d/fnm.fish << 'EOF'
+# fnm (Fast Node Manager)
+fnm env --use-on-cd | source
+EOF
+
+echo "fnm instalado correctamente."

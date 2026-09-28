@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=CDOS Welcome
+Name[es]=Bienvenido a CDOS
+Comment=Show CDOS welcome screen at login
+Comment[es]=Mostrar pantalla de bienvenida al iniciar sesión
+Exec=/usr/local/bin/cdos-welcome
+Icon=cdos
+Terminal=false
+Categories=Utility;
+StartupNotify=true
+X-KDE-autostart-after=panel
+X-KDE-autostart-condition=cdos-welcome:rc:Autostart:true
+OnlyShowIn=KDE;

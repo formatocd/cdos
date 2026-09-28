@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=CDOS Welcome
+Name[es]=Bienvenido a CDOS
+Comment=CDOS welcome screen
+Comment[es]=Pantalla de bienvenida de CDOS
+Exec=/usr/local/bin/cdos-welcome
+Icon=cdos
+Terminal=false
+Categories=Utility;
+Keywords=welcome;about;help;info;
+Keywords[es]=bienvenida;acerca;ayuda;info;
+StartupNotify=true
+NoDisplay=false

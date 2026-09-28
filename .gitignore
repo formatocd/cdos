@@ -31,3 +31,9 @@ chroot.packages.live
 live-image-amd64.files
 live-image-amd64.contents
 live-image-amd64.packages
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/

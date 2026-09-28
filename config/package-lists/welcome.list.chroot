@@ -1,0 +1,15 @@
+# =====================================================================
+# Dependencias de la pantalla de bienvenida CDOS Welcome
+# (PySide6 + QML + Kirigami)
+# =====================================================================
+
+# Python + PySide6 (Qt 6 bindings)
+python3
+python3-pyside6.qtcore
+python3-pyside6.qtgui
+python3-pyside6.qtqml
+python3-pyside6.qtquick
+python3-pyside6.qtquickcontrols2
+
+# Kirigami para el look nativo de KDE
+qml6-module-org-kde-kirigami

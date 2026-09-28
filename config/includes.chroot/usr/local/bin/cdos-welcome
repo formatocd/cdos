@@ -1,0 +1,5 @@
+#!/bin/bash
+# Lanzador de la pantalla de bienvenida CDOS.
+# Invoca el script Python que carga la interfaz QML.
+
+exec /usr/bin/python3 /usr/share/cdos/welcome/main.py "$@"

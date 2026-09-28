@@ -1,9 +1,9 @@
 # Directorios generados por live-build (enormes, regenerables)
-cache/
-chroot/
-binary/
-.build/
-bin/
+/cache/
+/chroot/
+/binary/
+/.build/
+/bin/
 
 # Imágenes y artefactos de salida
 *.iso

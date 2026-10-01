@@ -1,5 +1,5 @@
 // CDOS Welcome - Ventana principal
-// Fase 2.2: cabecera + párrafo + tres columnas de secciones.
+// Fase 3.2: enlaces en botones + sección INSTALLATION con detección live.
 
 import QtQuick
 import QtQuick.Controls
@@ -15,14 +15,11 @@ ApplicationWindow {
     title: root.t.windowTitle
     color: "#1a1a2e"
 
-
     // --- Diccionario de traducciones ---
-    // El idioma se detecta en main.py desde $LANG y se pasa como
-    // variable global 'appLanguage'.
     readonly property var translations: {
         "es": {
-		"title": "Bienvenido a CDOS 0.5 (Trixie)",
-		"windowTitle": "Bienvenido a CDOS",
+            "title": "Bienvenido a CDOS 0.5 (Trixie)",
+            "windowTitle": "Bienvenido a CDOS",
             "subtitle": "Una distribución de trabajo para desarrolladores",
             "intro": "Gracias por probar CDOS. Es una distribución de trabajo " +
                      "para desarrolladores basada en Debian 13.\n\n" +
@@ -35,11 +32,14 @@ ApplicationWindow {
             "release": "Notas de versión",
             "issues": "Incidencias",
             "repo": "Repositorio",
-            "contributing": "Contribuir"
+            "contributing": "Contribuir",
+            "installSection": "INSTALACIÓN",
+            "launchInstaller": "Lanzar instalador",
+            "comingSoon": "El instalador de CDOS estará disponible en una versión próxima."
         },
         "fr": {
-		"title": "Bienvenue sur CDOS 0.5 (Trixie)",
-		"windowTitle": "Bienvenue sur CDOS",
+            "title": "Bienvenue sur CDOS 0.5 (Trixie)",
+            "windowTitle": "Bienvenue sur CDOS",
             "subtitle": "Une distribution de travail pour les développeurs",
             "intro": "Merci d'essayer CDOS. C'est une distribution de travail " +
                      "pour les développeurs basée sur Debian 13.\n\n" +
@@ -52,11 +52,14 @@ ApplicationWindow {
             "release": "Notes de version",
             "issues": "Problèmes",
             "repo": "Dépôt",
-            "contributing": "Contribuer"
+            "contributing": "Contribuer",
+            "installSection": "INSTALLATION",
+            "launchInstaller": "Lancer l'installateur",
+            "comingSoon": "L'installateur CDOS sera disponible dans une prochaine version."
         },
         "de": {
-		"title": "Willkommen bei CDOS 0.5 (Trixie)",
-		"windowTitle": "Willkommen bei CDOS",
+            "title": "Willkommen bei CDOS 0.5 (Trixie)",
+            "windowTitle": "Willkommen bei CDOS",
             "subtitle": "Eine Arbeitsdistribution für Entwickler",
             "intro": "Danke, dass Sie CDOS ausprobieren. Es ist eine Arbeitsdistribution " +
                      "für Entwickler, basierend auf Debian 13.\n\n" +
@@ -69,11 +72,14 @@ ApplicationWindow {
             "release": "Versionshinweise",
             "issues": "Probleme",
             "repo": "Repository",
-            "contributing": "Mitwirken"
+            "contributing": "Mitwirken",
+            "installSection": "INSTALLATION",
+            "launchInstaller": "Installer starten",
+            "comingSoon": "Der CDOS-Installer wird in einer zukünftigen Version verfügbar sein."
         },
         "en": {
-		"title": "Welcome to CDOS 0.5 (Trixie)",
-		"windowTitle": "Welcome to CDOS",
+            "title": "Welcome to CDOS 0.5 (Trixie)",
+            "windowTitle": "Welcome to CDOS",
             "subtitle": "A work distribution for developers",
             "intro": "Thank you for trying CDOS. This is a work distribution " +
                      "for developers based on Debian 13.\n\n" +
@@ -86,21 +92,23 @@ ApplicationWindow {
             "release": "Release info",
             "issues": "Issues",
             "repo": "Repository",
-            "contributing": "Contributing"
+            "contributing": "Contributing",
+            "installSection": "INSTALLATION",
+            "launchInstaller": "Launch installer",
+            "comingSoon": "The CDOS installer will be available in a future version."
         }
     }
 
-    // Atajo al diccionario del idioma actual (con fallback a inglés)
     readonly property var t: translations[appLanguage] || translations["en"]
 
     // --- Componente reutilizable: botón de sección ---
     component SectionButton: Button {
-	    id: btn
-	    property string url: ""
+        id: btn
+        property string url: ""
         Layout.preferredWidth: 180
-	Layout.preferredHeight: 36
+        Layout.preferredHeight: 36
 
-	onClicked: Qt.openUrlExternally(url)
+        onClicked: Qt.openUrlExternally(url)
 
         background: Rectangle {
             color: btn.hovered ? "#2a2a4e" : "#252540"
@@ -181,14 +189,14 @@ ApplicationWindow {
 
                 SectionTitle { text: root.t.docSection }
 
-		SectionButton { 
-			text: root.t.readme 
-			url: "https://gitlab.com/fcd-private/cdos/-/blob/main/README.md"
-		}
-		SectionButton { 
-			text: root.t.release 
-			url: "https://gitlab.com/fcd-private/cdos/-/tags"
-		}
+                SectionButton {
+                    text: root.t.readme
+                    url: "https://gitlab.com/fcd-private/cdos/-/blob/main/README.md"
+                }
+                SectionButton {
+                    text: root.t.release
+                    url: "https://gitlab.com/fcd-private/cdos/-/tags"
+                }
             }
 
             // SUPPORT
@@ -197,10 +205,10 @@ ApplicationWindow {
 
                 SectionTitle { text: root.t.supSection }
 
-		SectionButton { 
-			text: root.t.issues 
-			url: "https://gitlab.com/fcd-private/cdos/-/issues"
-		}
+                SectionButton {
+                    text: root.t.issues
+                    url: "https://gitlab.com/fcd-private/cdos/-/issues"
+                }
             }
 
             // PROJECT
@@ -209,17 +217,50 @@ ApplicationWindow {
 
                 SectionTitle { text: root.t.projSection }
 
-		SectionButton { 
-			text: root.t.repo 
-			url: "https://gitlab.com/fcd-private/cdos"
-		}
-		SectionButton { 
-			text: root.t.contributing 
-			url: "https://gitlab.com/fcd-private/cdos/-/blob/main/CONTRIBUTING.md"
-		}
+                SectionButton {
+                    text: root.t.repo
+                    url: "https://gitlab.com/fcd-private/cdos"
+                }
+                SectionButton {
+                    text: root.t.contributing
+                    url: "https://gitlab.com/fcd-private/cdos/-/blob/main/CONTRIBUTING.md"
+                }
             }
         }
 
         Item { Layout.fillHeight: true }
+
+        // --- Sección INSTALLATION (solo visible en live) ---
+        ColumnLayout {
+            visible: isLive
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignHCenter
+            spacing: 8
+
+            SectionTitle { text: root.t.installSection }
+
+            SectionButton {
+                text: root.t.launchInstaller
+                Layout.alignment: Qt.AlignHCenter
+                onClicked: installerDialog.open()
+            }
+        }
+
+        Item { Layout.fillHeight: true }
+    }
+
+    // --- Diálogo informativo del instalador ---
+    Dialog {
+        id: installerDialog
+        title: root.t.launchInstaller
+        modal: true
+        anchors.centerIn: parent
+        standardButtons: Dialog.Ok
+
+        Label {
+            text: root.t.comingSoon
+            color: "#202030"
+            wrapMode: Text.WordWrap
+        }
     }
 }

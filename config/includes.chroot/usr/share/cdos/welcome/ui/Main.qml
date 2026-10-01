@@ -95,9 +95,12 @@ ApplicationWindow {
 
     // --- Componente reutilizable: botón de sección ---
     component SectionButton: Button {
-        id: btn
+	    id: btn
+	    property string url: ""
         Layout.preferredWidth: 180
-        Layout.preferredHeight: 36
+	Layout.preferredHeight: 36
+
+	onClicked: Qt.openUrlExternally(url)
 
         background: Rectangle {
             color: btn.hovered ? "#2a2a4e" : "#252540"
@@ -178,8 +181,14 @@ ApplicationWindow {
 
                 SectionTitle { text: root.t.docSection }
 
-                SectionButton { text: root.t.readme }
-                SectionButton { text: root.t.release }
+		SectionButton { 
+			text: root.t.readme 
+			url: "https://gitlab.com/fcd-private/cdos/-/blob/main/README.md"
+		}
+		SectionButton { 
+			text: root.t.release 
+			url: "https://gitlab.com/fcd-private/cdos/-/tags"
+		}
             }
 
             // SUPPORT
@@ -188,7 +197,10 @@ ApplicationWindow {
 
                 SectionTitle { text: root.t.supSection }
 
-                SectionButton { text: root.t.issues }
+		SectionButton { 
+			text: root.t.issues 
+			url: "https://gitlab.com/fcd-private/cdos/-/issues"
+		}
             }
 
             // PROJECT
@@ -197,8 +209,14 @@ ApplicationWindow {
 
                 SectionTitle { text: root.t.projSection }
 
-                SectionButton { text: root.t.repo }
-                SectionButton { text: root.t.contributing }
+		SectionButton { 
+			text: root.t.repo 
+			url: "https://gitlab.com/fcd-private/cdos"
+		}
+		SectionButton { 
+			text: root.t.contributing 
+			url: "https://gitlab.com/fcd-private/cdos/-/blob/main/CONTRIBUTING.md"
+		}
             }
         }
 

@@ -37,3 +37,7 @@ fish
 # Herramienta de información del sistema (invocable manualmente,
 # no auto-ejecutada en Konsole para no molestar en el uso diario)
 fastfetch
+
+# Navegador web por defecto (necesario para los enlaces del welcome
+# y para uso diario del desarrollador)
+firefox-esr

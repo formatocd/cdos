@@ -17,33 +17,33 @@ USER_LANG=$(echo "${LANG:-en_US}" | cut -c1-2)
 
 case "$USER_LANG" in
     es)
-        echo "Bienvenido a CDOS 0.3 \"Trixie\""
+        echo "Bienvenido a CDOS 0.5.1 \"Trixie\""
         echo "Distribución de trabajo para desarrolladores."
         echo "Basada en Debian 13 (trixie)."
         echo ""
-        echo "Soporte: https://gitlab.com/fcd-private/cdos/-/issues"
+        echo "Soporte: https://github.com/formatocd/cdos/issues"
         echo "Documentación: /usr/share/doc/cdos/"
         ;;
     fr)
-        echo "Bienvenue sur CDOS 0.3 \"Trixie\""
+        echo "Bienvenue sur CDOS 0.5.1 \"Trixie\""
         echo "Distribution de travail pour les développeurs."
         echo "Basée sur Debian 13 (trixie)."
         echo ""
-        echo "Support : https://gitlab.com/fcd-private/cdos/-/issues"
+        echo "Support : https://github.com/formatocd/cdos/issues"
         ;;
     de)
-        echo "Willkommen bei CDOS 0.3 \"Trixie\""
+        echo "Willkommen bei CDOS 0.5.1 \"Trixie\""
         echo "Arbeitsdistribution für Entwickler."
         echo "Basiert auf Debian 13 (trixie)."
         echo ""
-        echo "Support: https://gitlab.com/fcd-private/cdos/-/issues"
+        echo "Support: https://github.com/formatocd/cdos/issues"
         ;;
     *)
-        echo "Welcome to CDOS 0.3 \"Trixie\""
+        echo "Welcome to CDOS 0.5.1 \"Trixie\""
         echo "A work distribution for developers."
         echo "Based on Debian 13 (trixie)."
         echo ""
-        echo "Support: https://gitlab.com/fcd-private/cdos/-/issues"
+        echo "Support: https://github.com/formatocd/cdos/issues"
         echo "Documentation: /usr/share/doc/cdos/"
         ;;
 esac

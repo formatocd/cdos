@@ -31,6 +31,19 @@ def detect_language() -> str:
     return lang[:2].lower()
 
 
+def detect_live() -> bool:
+    """Detecta si estamos en una sesión Live de CDOS.
+
+    live-boot monta el sistema de archivos en /run/live (o /lib/live
+    en versiones antiguas). En una instalación en disco, esos
+    directorios no existen.
+    """
+    return (
+        os.path.isdir("/run/live")
+        or os.path.isdir("/lib/live/mount")
+    )
+
+
 def main() -> int:
     # Directorio donde está este script (y el QML en ui/)
     base_dir = Path(__file__).resolve().parent
@@ -51,6 +64,8 @@ def main() -> int:
     # Detectar idioma y pasarlo a QML como variable global
     language = detect_language()
     engine.rootContext().setContextProperty("appLanguage", language)
+    is_live = detect_live()
+    engine.rootContext().setContextProperty("isLive", is_live)
 
     engine.load(QUrl.fromLocalFile(str(qml_file)))
 

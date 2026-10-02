@@ -18,7 +18,7 @@ ApplicationWindow {
     // --- Diccionario de traducciones ---
     readonly property var translations: {
         "es": {
-            "title": "Bienvenido a CDOS 0.5.1 (Trixie)",
+            "title": "Bienvenido a CDOS 0.5.2 (Trixie)",
             "windowTitle": "Bienvenido a CDOS",
             "subtitle": "Una distribución de trabajo para desarrolladores",
             "intro": "Gracias por probar CDOS. Es una distribución de trabajo " +
@@ -38,7 +38,7 @@ ApplicationWindow {
             "comingSoon": "El instalador de CDOS estará disponible en una versión próxima."
         },
         "fr": {
-            "title": "Bienvenue sur CDOS 0.5.1 (Trixie)",
+            "title": "Bienvenue sur CDOS 0.5.2 (Trixie)",
             "windowTitle": "Bienvenue sur CDOS",
             "subtitle": "Une distribution de travail pour les développeurs",
             "intro": "Merci d'essayer CDOS. C'est une distribution de travail " +
@@ -58,7 +58,7 @@ ApplicationWindow {
             "comingSoon": "L'installateur CDOS sera disponible dans une prochaine version."
         },
         "de": {
-            "title": "Willkommen bei CDOS 0.5.1 (Trixie)",
+            "title": "Willkommen bei CDOS 0.5.2 (Trixie)",
             "windowTitle": "Willkommen bei CDOS",
             "subtitle": "Eine Arbeitsdistribution für Entwickler",
             "intro": "Danke, dass Sie CDOS ausprobieren. Es ist eine Arbeitsdistribution " +
@@ -78,7 +78,7 @@ ApplicationWindow {
             "comingSoon": "Der CDOS-Installer wird in einer zukünftigen Version verfügbar sein."
         },
         "en": {
-            "title": "Welcome to CDOS 0.5.1 (Trixie)",
+            "title": "Welcome to CDOS 0.5.2 (Trixie)",
             "windowTitle": "Welcome to CDOS",
             "subtitle": "A work distribution for developers",
             "intro": "Thank you for trying CDOS. This is a work distribution " +

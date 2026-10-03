@@ -66,6 +66,7 @@ class Preferences(QObject):
         if not CONFIG_FILE.exists():
             return True
         config = configparser.ConfigParser()
+        config.optionxform = str
         config.read(CONFIG_FILE)
         if "rc" not in config or "Autostart" not in config["rc"]:
             return True
@@ -76,6 +77,7 @@ class Preferences(QObject):
         """Escribe el estado del autostart en el archivo de config."""
         CONFIG_DIR.mkdir(parents=True, exist_ok=True)
         config = configparser.ConfigParser()
+        config.optionxform = str
         if CONFIG_FILE.exists():
             config.read(CONFIG_FILE)
         if "rc" not in config:

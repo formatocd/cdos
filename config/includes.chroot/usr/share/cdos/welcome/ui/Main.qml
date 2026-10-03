@@ -35,7 +35,8 @@ ApplicationWindow {
             "contributing": "Contribuir",
             "installSection": "INSTALACIÓN",
             "launchInstaller": "Lanzar instalador",
-            "comingSoon": "El instalador de CDOS estará disponible en una versión próxima."
+	    "comingSoon": "El instalador de CDOS estará disponible en una versión próxima.",
+            "launchAtStart": "Iniciar al arrancar"
         },
         "fr": {
             "title": "Bienvenue sur CDOS 0.5.2 (Trixie)",
@@ -55,7 +56,8 @@ ApplicationWindow {
             "contributing": "Contribuer",
             "installSection": "INSTALLATION",
             "launchInstaller": "Lancer l'installateur",
-            "comingSoon": "L'installateur CDOS sera disponible dans une prochaine version."
+	    "comingSoon": "L'installateur CDOS sera disponible dans une prochaine version.",
+	    "launchAtStart": "Lancer au démarrage"
         },
         "de": {
             "title": "Willkommen bei CDOS 0.5.2 (Trixie)",
@@ -75,7 +77,8 @@ ApplicationWindow {
             "contributing": "Mitwirken",
             "installSection": "INSTALLATION",
             "launchInstaller": "Installer starten",
-            "comingSoon": "Der CDOS-Installer wird in einer zukünftigen Version verfügbar sein."
+	    "comingSoon": "Der CDOS-Installer wird in einer zukünftigen Version verfügbar sein.",
+	    "launchAtStart": "Beim Start ausführen"
         },
         "en": {
             "title": "Welcome to CDOS 0.5.2 (Trixie)",
@@ -95,7 +98,8 @@ ApplicationWindow {
             "contributing": "Contributing",
             "installSection": "INSTALLATION",
             "launchInstaller": "Launch installer",
-            "comingSoon": "The CDOS installer will be available in a future version."
+	    "comingSoon": "The CDOS installer will be available in a future version.",
+	    "launchAtStart": "Launch at start"
         }
     }
 
@@ -246,7 +250,28 @@ ApplicationWindow {
             }
         }
 
-        Item { Layout.fillHeight: true }
+	Item { Layout.fillHeight: true }
+
+	// --- Pie: toggle de autostart ---
+        RowLayout {
+            Layout.fillWidth: true
+            Layout.topMargin: 8
+            spacing: 12
+
+            Item { Layout.fillWidth: true }  // empuja el contenido a la derecha
+
+            Label {
+                text: root.t.launchAtStart
+                color: "#c0c0d0"
+                font.pixelSize: 13
+            }
+
+            Switch {
+                id: autostartSwitch
+                checked: prefs.autostartEnabled()
+                onToggled: prefs.setAutostart(checked)
+            }
+        }
     }
 
     // --- Diálogo informativo del instalador ---

@@ -6,11 +6,12 @@ Fase 2.3a: detección de idioma del sistema y paso a QML como
 variable global 'appLanguage'.
 """
 
+import configparser
 import os
 import sys
 from pathlib import Path
 
-from PySide6.QtCore import QUrl
+from PySide6.QtCore import QObject, QUrl, Slot
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 
@@ -44,6 +45,48 @@ def detect_live() -> bool:
     )
 
 
+# Ruta al archivo de configuración del welcome.
+# KDE lo lee para decidir si lanzar el welcome al iniciar sesión:
+#   X-KDE-autostart-condition=cdos-welcome:rc:Autostart:true
+CONFIG_DIR = Path.home() / ".config"
+CONFIG_FILE = CONFIG_DIR / "cdos-welcomerc"
+
+
+class Preferences(QObject):
+    """Preferencias del usuario para el welcome.
+
+    Expuesta a QML como context property 'prefs'. QML puede:
+      - Leer el estado: prefs.autostartEnabled()
+      - Cambiarlo: prefs.setAutostart(true/false)
+    """
+
+    @Slot(result=bool)
+    def autostartEnabled(self) -> bool:
+        """Lee el estado del autostart. Por defecto True si no hay archivo."""
+        if not CONFIG_FILE.exists():
+            return True
+        config = configparser.ConfigParser()
+        config.optionxform = str
+        config.read(CONFIG_FILE)
+        if "rc" not in config or "Autostart" not in config["rc"]:
+            return True
+        return config["rc"].getboolean("Autostart")
+
+    @Slot(bool)
+    def setAutostart(self, value: bool) -> None:
+        """Escribe el estado del autostart en el archivo de config."""
+        CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+        config = configparser.ConfigParser()
+        config.optionxform = str
+        if CONFIG_FILE.exists():
+            config.read(CONFIG_FILE)
+        if "rc" not in config:
+            config["rc"] = {}
+        config["rc"]["Autostart"] = "true" if value else "false"
+        with CONFIG_FILE.open("w") as f:
+            config.write(f)
+
+
 def main() -> int:
     # Directorio donde está este script (y el QML en ui/)
     base_dir = Path(__file__).resolve().parent
@@ -66,6 +109,8 @@ def main() -> int:
     engine.rootContext().setContextProperty("appLanguage", language)
     is_live = detect_live()
     engine.rootContext().setContextProperty("isLive", is_live)
+    prefs = Preferences()
+    engine.rootContext().setContextProperty("prefs", prefs)
 
     engine.load(QUrl.fromLocalFile(str(qml_file)))
 

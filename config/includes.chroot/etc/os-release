@@ -1,7 +1,7 @@
-PRETTY_NAME="CDOS 0.5.2 (Trixie)"
+PRETTY_NAME="CDOS 0.5.3 (Trixie)"
 NAME="CDOS"
-VERSION_ID="0.5.2"
-VERSION="0.5.2 (Trixie)"
+VERSION_ID="0.5.3"
+VERSION="0.5.3 (Trixie)"
 VERSION_CODENAME=trixie
 ID=cdos
 ID_LIKE=debian

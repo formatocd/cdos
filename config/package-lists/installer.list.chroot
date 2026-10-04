@@ -1,0 +1,13 @@
+# =====================================================================
+# Dependencias del instalador de disco
+# =====================================================================
+
+# Lanzador del instalador de Debian desde una sesión live
+debian-installer-launcher
+
+# Herramienta para crear metapaquetes de tareas (tasksel)
+# Se usa en un hook para generar los metapaquetes task-cdos-*
+equivs
+
+# Gestor de tareas de software del instalador
+tasksel

@@ -16,7 +16,9 @@ lb config noauto \
     --architectures amd64 \
     --apt-recommends false \
     --iso-volume "CDOS @ISOVOLUME_TS@" \
-    --debian-installer false \
+    --debian-installer live \
     --bootappend-live "boot=live components live-config.username=live live-config.hostname=cdos" \
     --debootstrap-options "--include=ca-certificates,apt-transport-https" \
+    --checksums sha256 \
+    --loadlin false \
     "${@}"

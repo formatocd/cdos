@@ -1,0 +1,28 @@
+Task: cdos-desktop
+Section: user
+Relevance: 8
+Description: CDOS desktop environment
+ A KDE Plasma desktop with the essential applications for CDOS:
+ terminal, file manager, network manager, screenshot tool,
+ archive tools, text editor, and Firefox ESR.
+Packages: kde-plasma-desktop, sddm, xserver-xorg, kwin-x11, konsole, plasma-nm, xdg-desktop-portal-kde, kde-spectacle, ark, kate, fastfetch, firefox-esr
+
+Task: cdos-developer
+Section: user
+Relevance: 7
+Description: CDOS developer tools
+ The CDOS desktop plus a full developer toolchain: Java (21, 25),
+ Python 3, Node.js, Go, build tools, Git, Neovim, and a
+ comprehensive set of CLI and diagnostic utilities.
+Packages: kde-plasma-desktop, sddm, xserver-xorg, kwin-x11, konsole, plasma-nm, xdg-desktop-portal-kde, kde-spectacle, ark, kate, fastfetch, firefox-esr, openjdk-21-jdk, openjdk-25-jdk, python3, python3-pip, python3-venv, python3-dev, nodejs, npm, golang, build-essential, cmake, meson, ninja-build, pkg-config, git, git-lfs, tig, neovim, gdb, strace, ltrace, valgrind, curl, wget, netcat-openbsd, nmap, tcpdump, iftop, dnsutils, traceroute, whois, htop, iotop, tmux, jq, ripgrep, fd-find, fzf, bat, eza, zip, unzip, p7zip-full, man-db, manpages, manpages-dev
+
+Task: cdos-full
+Section: user
+Relevance: 6
+Description: CDOS full environment
+ The developer environment plus office applications:
+ Thunderbird, KMail, and FileZilla. Note: VSCode, Docker,
+ and ONLYOFFICE are not included here because they require
+ external APT repositories that are not configured during
+ the installation. See the project README for how to add them.
+Packages: kde-plasma-desktop, sddm, xserver-xorg, kwin-x11, konsole, plasma-nm, xdg-desktop-portal-kde, kde-spectacle, ark, kate, fastfetch, firefox-esr, openjdk-21-jdk, openjdk-25-jdk, python3, python3-pip, python3-venv, python3-dev, nodejs, npm, golang, build-essential, cmake, meson, ninja-build, pkg-config, git, git-lfs, tig, neovim, gdb, strace, ltrace, valgrind, curl, wget, netcat-openbsd, nmap, tcpdump, iftop, dnsutils, traceroute, whois, htop, iotop, tmux, jq, ripgrep, fd-find, fzf, bat, eza, zip, unzip, p7zip-full, man-db, manpages, manpages-dev, thunderbird, kmail, filezilla

@@ -13,7 +13,7 @@ LB_APT_INDICES="true"
 LB_BOOTAPPEND_LIVE="boot=live components live-config.username=live live-config.hostname=cdos"
 
 # Set boot parameters
-LB_BOOTAPPEND_INSTALL=""
+LB_BOOTAPPEND_INSTALL="preseed/file=/cdrom/install/preseed.cfg"
 
 # Set boot parameters
 LB_BOOTAPPEND_LIVE_FAILSAFE="boot=live components memtest noapic noapm nodma nomce nosmp nosplash vga=788"

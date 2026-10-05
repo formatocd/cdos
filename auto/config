@@ -18,6 +18,7 @@ lb config noauto \
     --iso-volume "CDOS @ISOVOLUME_TS@" \
     --debian-installer live \
     --bootappend-live "boot=live components live-config.username=live live-config.hostname=cdos" \
+    --bootappend-install "preseed/file=/cdrom/install/preseed.cfg" \
     --debootstrap-options "--include=ca-certificates,apt-transport-https" \
     --checksums sha256 \
     --loadlin false \

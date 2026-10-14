@@ -6,7 +6,7 @@
 %include fedora-kickstarts/fedora-live-kde.ks
 
 # Paquetería específica para CDOS
-%packages
+%packages --ignoremissing
 # --- Paridad y Entornos RHEL ---
 podman
 podman-compose
@@ -18,9 +18,7 @@ rsync
 openssh-clients
 
 # --- Toolchains (Java OpenJDK LTS y Compiladores) ---
-java-11-openjdk-devel
-java-17-openjdk-devel
-java-21-openjdk-devel
+java-25-openjdk-devel
 @development-tools
 cmake
 ninja-build
